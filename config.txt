@@ -1,0 +1,8 @@
+[Station_Configuration]
+Site = drv
+Correction_F = 50
+Rotation_Angle = 1.5
+Bearing_Azimuth = 44.5315
+
+[Software_Configuration]
+Saving_Directory_Path = mesabs
