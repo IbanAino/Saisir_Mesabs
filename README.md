@@ -17,6 +17,7 @@ Tous les fichiers suivants doivent être copiés ensembles dans un même répert
 - Controller.py
 - config.txt
 - README.md
+- rsc_doc/*
 
 Modules Python3 supplémentaires à télécharger :
 - **tkinter** : affichage graphique
@@ -36,3 +37,5 @@ pip install datetime
 La fonction principale de l'outil est de saisir les mesabs. La touche TAB permet de passer d'un champ d'entrée à l'autre sans sourie. Une vérification des entrées utilisateur vérifie les données. En cas de valeur erronée le champ se colore en rouge.
 
 Cet outil permet également d'ouvrir une ancienne masabs pour la modifier.
+
+Les données pérènes telles que le nom de l'observatoire ou l'azimuth repère, qui ne sont pas vouées à être saisies par l'utilisateur, sont inscrites dans le fichier de config **config.txt**. Leur inaccessibilité dans l'interface graphique permet à l'utilisateur de son concentrer pleinement sur la saisie de la mesabs.
