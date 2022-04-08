@@ -4,13 +4,13 @@
 
 **Date :** 2022
 
-Cet outil est dédié à l'opérateur qui saisi les masabs à l'ordinateur et est optimisé spécialement pour cette tâche.
+Cet outil est dédié à l'opérateur qui saisit les masabs à l'ordinateur et est optimisé spécialement pour cette tâche.
 
 ![Alt text](rsc_doc/graphical_interface.png?raw=true "Flower")
 
 ## Installation
 
-Tous les fichiers suivants doivent être copiés ensembles dans un même répertoire :
+Tous les fichiers doivent être copiés ensembles dans un même répertoire :
 - Saisir.py
 - Model.py
 - View.py
@@ -33,6 +33,12 @@ pip install datetime
 ```
 
 ## Utilisation
+
+Pour lancer le scrilogiciel, lancer le fichier Saisir.py avec Python3 (en se plaçant dans le répertoire du fichier):
+
+```bash:
+python3 Saisir.py
+```
 
 La fonction principale de l'outil est de saisir les mesabs. La touche TAB permet de passer d'un champ d'entrée à l'autre sans sourie. Une vérification des entrées utilisateur vérifie les données. En cas de valeur erronée le champ se colore en rouge.
 
