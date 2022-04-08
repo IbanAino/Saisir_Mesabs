@@ -6,6 +6,8 @@
 
 Cet outil est dédié à l'opérateur qui saisi les masabs à l'ordinateur et est optimisé spécialement pour cette tâche.
 
+![Alt text](rsc_doc/graphical_interface.png?raw=true "Flower")
+
 ## Installation
 
 Tous les fichiers suivants doivent être copiés ensembles dans un même répertoire :
