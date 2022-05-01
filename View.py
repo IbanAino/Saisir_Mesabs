@@ -696,7 +696,7 @@ class Entry_Angles_From_Target(tk.Frame):
         # Compute values automatically
         try:
             if self.V1_Probe_Up_Entry.get() and self.V1_Probe_Down_Entry.get():
-                angle_Average = (((float(self.V1_Probe_Up_Entry.get()) + float(self.V1_Probe_Down_Entry.get())) / 2) + 100) - float(self.bearing_Azimuth)
+                angle_Average = round((((float(self.V1_Probe_Up_Entry.get()) + float(self.V1_Probe_Down_Entry.get())) / 2) + 100) - float(self.bearing_Azimuth), 5)
                 # round up angle_average :
                 angle_Average = (math.ceil(angle_Average * 10000)) / 10000
 
@@ -742,7 +742,7 @@ class Entry_Angles_From_Target(tk.Frame):
         # Compute values automatically
         try:
             if self.V2_Probe_Up_Entry.get() and self.V2_Probe_Down_Entry.get():
-                angle_Average = (((float(self.V2_Probe_Up_Entry.get()) + float(self.V2_Probe_Down_Entry.get())) / 2) + 100) - float(self.bearing_Azimuth)
+                angle_Average = round((((float(self.V2_Probe_Up_Entry.get()) + float(self.V2_Probe_Down_Entry.get())) / 2) + 100) - float(self.bearing_Azimuth), 5)
                 # round up angle_average :
                 angle_Average = (math.ceil(angle_Average * 10000)) / 10000
 
