@@ -1,6 +1,7 @@
 from tkinter import Tk, W, E, messagebox
 from tkinter import ttk
 from tkinter.ttk import Frame, Button, Entry, Style
+from tkinter import filedialog as fd
 import tkinter as tk
 
 from datetime import datetime
@@ -55,6 +56,7 @@ class View(tk.Frame):
         self.correction_F = 'None'
         self.rotation_Angle  = 'None'
         self.bearing_Azimuth = 'None'
+        self.saving_Directory_Path = 'None'
 
         #------ TEXT ------
         Text_Frame(text = 'Mesures de X').place(x = 260, y = 220)
@@ -123,9 +125,32 @@ class View(tk.Frame):
         """
         Cette fonction active la lecture d'une saisie de mesure absolue lor du clic du bouton "charger une mesabs"
         """
+
         print("Load mesabs View")
         if self.controller:
-            self.controller.load_mesabs()
+                #self.controller.load_mesabs()
+            self.select_file()
+
+
+    def select_file(self):
+        """
+        Cette fonction permet de sélectionner un fichier de mesabs dans l'arborescence de fichiers de l'ordinateur.
+        """
+        filetypes = (
+            ('mesabs from DRV', '*.drv'),
+            ('text files', '*.txt'),
+            ('All files', '*.*')
+        )
+
+        filename = fd.askopenfilename(
+            title='Open a file',
+            initialdir = self.saving_Directory_Path,
+            filetypes=filetypes)
+        
+        if self.controller:
+            self.controller.get_file_to_load(filename)
+
+
 
     def update_Station_Config(self):
         """

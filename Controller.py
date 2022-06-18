@@ -39,14 +39,17 @@ class Controller:
         self.view.correction_F = self.model.correction_F,
         self.view.rotation_Angle = self.model.rotation_Angle,
         self.view.bearing_Azimuth = self.model.bearing_Azimuth
+        self.view.saving_Directory_Path = self.model.saving_Directory_Path
         self.view.update_Station_Config()
 
-    def load_mesabs(self):
+    def get_file_to_load(self, filename):
         """
-        Cette fonction se charge de faire transiter les information d'une mesabs déjà saisie dans un fichier texte vers l'interface graphique.
+        Cette foncation envoie au Model le fichier à lire, précédemment sélectionné dans le View.
+        Le Model extrait les données du fichier texte.
+        Les données sont ensuite renvoyées au View pour remplir les champs du formulaire
         """
-        print('Load mesabs Controller')
-        self.model.read_Mesabs()
+        self.model.read_Mesabs_From_file(filename)
+
         self.view.opening_Calibration_X.update_Data(self.model.data_Sequence_1_X)
         self.view.opening_Calibration_Y.update_Data(self.model.data_Sequence_1_Y)
         self.view.closing_Calibration_X.update_Data(self.model.data_Sequence_2_X)

@@ -5,4 +5,4 @@ Rotation_Angle = 1.5
 Bearing_Azimuth = 44.5315
 
 [Software_Configuration]
-Saving_Directory_Path = mesabs
+Saving_Directory_Path = /home/petitstrum/Documents/01_Instrum/P139-Magne/Scripts/mesabs

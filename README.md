@@ -34,7 +34,7 @@ pip install datetime
 
 ## Utilisation
 
-Pour lancer le scrilogiciel, lancer le fichier Saisir.py avec Python3 (en se plaçant dans le répertoire du fichier):
+Pour lancer le logiciel, lancer le fichier Saisir.py avec Python3 (en se plaçant dans le répertoire du fichier):
 
 ```bash:
 python3 Saisir.py

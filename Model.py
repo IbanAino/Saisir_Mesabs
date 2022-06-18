@@ -8,7 +8,7 @@ from os.path import exists
 # Cette classe est la classe Model de l'architecture logicielle Modèle - Vue - controlleur.
 # Elle contient deux fonction principaes :
 # - fonction save_Data, qui enregistre la mesabs dans un fichier texte.
-# - fonction read_Mesabs, qu iouvre une mesabs déjà enregistrée à partir d'un fochier texte pour pouvoir l'éditer.
+# - fonction read_Mesabs, qui ouvre une mesabs déjà enregistrée à partir d'un fochier texte pour pouvoir l'éditer.
 ##
 class Model:
     def __init__(self):
@@ -163,145 +163,143 @@ class Model:
             self.controller.show_Error_Message(text = 'Erreur, enregistrement dans un fichier impossible')
             return False
 
-    def read_Mesabs(self):
-        """
-        CETTE FONCTION EST EN CONSTRUCTION
-        à terme cette fonction ouvrira une mesure absolue enregistrée dans un ficheir texte pour en extraire les données et remplir les champs du formulaire de l'interface graphique.
-        """
-        self.table_metadata = {
-            'station' : 'drv',
-            'date' : '12/02/23',
-            'correction_F_Measurement' : '50',
-            'rotation_Angle' : '1.5',
-            'bearing_Azimuth' : '44.5315'
-        }
-        self.table_Angles_From_Target = {
-            'V1_Probe_Up' : '56.5656',
-            'V1_Probe_Down' : '56.5656',
-            'V2_Probe_Up' : '56.5656',
-            'V2_Probe_Down' : '56.5656',
-            'angle_From_Target_V1' : '56.5656',
-            'angle_From_Target_V2' : '56.5656'
-        }
-        self.data_Sequence_1_X = {
-            'time_1' : '121212',
-            'time_2' : '121212',
-            'time_3' : '121212',
-            'time_4' : '121212',
-            'angle_1' : '42.42',
-            'angle_2' : '242.42',
-            'angle_3' : '42.42',
-            'angle_4' : '342.42',
-            'magn_Value_1' : '9',
-            'magn_Value_2' : '9',
-            'magn_Value_3' : '9',
-            'magn_Value_4' : '9'
-        }
-        self.data_Sequence_1_Y = {
-            'time_1' : '121212',
-            'time_2' : '121212',
-            'time_3' : '121212',
-            'time_4' : '121212',
-            'angle_1' : '42.4242',
-            'angle_2' : '42.4242',
-            'angle_3' : '42.4242',
-            'angle_4' : '42.4242',
-            'magn_Value_1' : '9.9',
-            'magn_Value_2' : '9.9',
-            'magn_Value_3' : '9.9',
-            'magn_Value_4' : '9.9'
-        }
-        self.data_Sequence_2_X = {
-            'time_1' : '121212',
-            'time_2' : '121212',
-            'time_3' : '121212',
-            'time_4' : '121212',
-            'angle_1' : '42.4242',
-            'angle_2' : '42.4242',
-            'angle_3' : '42.4242',
-            'angle_4' : '42.4242',
-            'magn_Value_1' : '9.9',
-            'magn_Value_2' : '9.9',
-            'magn_Value_3' : '9.9',
-            'magn_Value_4' : '9.9'
-        }
-        self.data_Sequence_2_Y = {
-            'time_1' : '121212',
-            'time_2' : '121212',
-            'time_3' : '121212',
-            'time_4' : '121212',
-            'angle_1' : '42.4242',
-            'angle_2' : '142.4242',
-            'angle_3' : '42.4242',
-            'angle_4' : '42.4242',
-            'magn_Value_1' : '9.9',
-            'magn_Value_2' : '9.9',
-            'magn_Value_3' : '9.9',
-            'magn_Value_4' : '9.9'
-        }
-        self.data_Calibration_Opening_Probe_Up = {
-            'time_1' : '011234',
-            'time_2' : '121212',
-            'time_3' : '121212',
-            'time_4' : '121212',
-            'angle_1' : '42.4242',
-            'angle_2' : '342.4242',
-            'angle_3' : '142.4242',
-            'angle_4' : '242.4242',
-            'magn_Value_1' : '9.9',
-            'magn_Value_2' : '+1634.9',
-            'magn_Value_3' : '-1658.9',
-            'magn_Value_4' : '9.9',
-            'est_Magn' : '8.8'
-        }
-        self.data_Calibration_Opening_Probe_Down = {
-            'time_1' : '121212',
-            'time_2' : '121212',
-            'time_3' : '121212',
-            'time_4' : '121212',
-            'angle_1' : '42.4242',
-            'angle_2' : '42.4242',
-            'angle_3' : '42.4242',
-            'angle_4' : '42.4242',
-            'magn_Value_1' : '9.9',
-            'magn_Value_2' : '9.9',
-            'magn_Value_3' : '9.9',
-            'magn_Value_4' : '9.9',
-            'est_Magn' : '8.8'
-        }
-        self.data_Calibration_Closing_Probe_Up = {
-            'time_1' : '121212',
-            'time_2' : '121212',
-            'time_3' : '121212',
-            'time_4' : '121212',
-            'angle_1' : '42.4242',
-            'angle_2' : '42.4242',
-            'angle_3' : '42.4242',
-            'angle_4' : '42.4242',
-            'magn_Value_1' : '9.9',
-            'magn_Value_2' : '9.9',
-            'magn_Value_3' : '9.9',
-            'magn_Value_4' : '9.9',
-            'est_Magn' : '8.8'
-        }
-        self.data_Calibration_Closing_Probe_Down = {
-            'time_1' : '121212',
-            'time_2' : '121212',
-            'time_3' : '121212',
-            'time_4' : '121212',
-            'angle_1' : '42.4242',
-            'angle_2' : '42.4242',
-            'angle_3' : '42.4242',
-            'angle_4' : '42.4242',
-            'magn_Value_1' : '9.9',
-            'magn_Value_2' : '9.9',
-            'magn_Value_3' : '9.9',
-            'magn_Value_4' : '9.9',
-            'est_Magn' : '8.8'
+    def read_Mesabs_From_file(self, filename):
+        
+        with open(filename, 'r') as file:
+
+            lines = file.readlines()
+
+            self.table_metadata = {
+                'station' : lines[0][1:4],
+                'date' : lines[0][5:7] + '/' + lines[0][8:10] + '/' + lines[0][11:13],
+                'correction_F_Measurement' : lines[3][0:6],
+                'rotation_Angle' : lines[6][1:4],
+                'bearing_Azimuth' : lines[9][1:8],
             }
-
-
-
+            self.table_Angles_From_Target = {
+                'V1_Probe_Up' : lines[10][0:8],
+                'V1_Probe_Down' : lines[10][9:17],
+                'V2_Probe_Up' : lines[11][0:8],
+                'V2_Probe_Down' : lines[11][9:17],
+                'angle_From_Target_V1' : '00.0000',
+                'angle_From_Target_V2' : '00.0000'
+            }
+            self.data_Sequence_1_X = {
+                'time_1' : lines[40][0:2] + lines[40][3:5] + lines[40][6:8],
+                'time_2' : lines[41][0:2] + lines[41][3:5] + lines[41][6:8],
+                'time_3' : lines[42][0:2] + lines[42][3:5] + lines[42][6:8],
+                'time_4' : lines[43][0:2] + lines[43][3:5] + lines[43][6:8],
+                'angle_1' : lines[40][9:16],
+                'angle_2' : lines[41][9:16],
+                'angle_3' : lines[42][9:16],
+                'angle_4' : lines[43][9:16],
+                'magn_Value_1' : lines[40][19:25],
+                'magn_Value_2' : lines[41][19:25],
+                'magn_Value_3' : lines[42][19:25],
+                'magn_Value_4' : lines[43][19:25]
+            }
+            self.data_Sequence_1_Y = {
+                'time_1' : lines[46][0:2] + lines[46][3:5] + lines[46][6:8],
+                'time_2' : lines[47][0:2] + lines[47][3:5] + lines[47][6:8],
+                'time_3' : lines[48][0:2] + lines[48][3:5] + lines[48][6:8],
+                'time_4' : lines[49][0:2] + lines[49][3:5] + lines[49][6:8],
+                'angle_1' : lines[46][9:16],
+                'angle_2' : lines[47][9:16],
+                'angle_3' : lines[48][9:16],
+                'angle_4' : lines[49][9:16],
+                'magn_Value_1' : lines[46][19:25],
+                'magn_Value_2' : lines[47][19:25],
+                'magn_Value_3' : lines[48][19:25],
+                'magn_Value_4' : lines[49][19:25]
+            }
+            self.data_Sequence_2_X = {
+                'time_1' : lines[52][0:2] + lines[52][3:5] + lines[52][6:8],
+                'time_2' : lines[53][0:2] + lines[53][3:5] + lines[53][6:8],
+                'time_3' : lines[54][0:2] + lines[54][3:5] + lines[54][6:8],
+                'time_4' : lines[55][0:2] + lines[55][3:5] + lines[55][6:8],
+                'angle_1' : lines[52][9:16],
+                'angle_2' : lines[53][9:16],
+                'angle_3' : lines[54][9:16],
+                'angle_4' : lines[55][9:16],
+                'magn_Value_1' : lines[52][19:25],
+                'magn_Value_2' : lines[53][19:25],
+                'magn_Value_3' : lines[54][19:25],
+                'magn_Value_4' : lines[55][19:25]
+            }
+            self.data_Sequence_2_Y = {
+                'time_1' : lines[58][0:2] + lines[58][3:5] + lines[58][6:8],
+                'time_2' : lines[59][0:2] + lines[59][3:5] + lines[59][6:8],
+                'time_3' : lines[60][0:2] + lines[60][3:5] + lines[60][6:8],
+                'time_4' : lines[61][0:2] + lines[61][3:5] + lines[61][6:8],
+                'angle_1' : lines[58][9:16],
+                'angle_2' : lines[59][9:16],
+                'angle_3' : lines[60][9:16],
+                'angle_4' : lines[61][9:16],
+                'magn_Value_1' : lines[58][19:25],
+                'magn_Value_2' : lines[59][19:25],
+                'magn_Value_3' : lines[60][19:25],
+                'magn_Value_4' : lines[61][19:25]
+            }
+            self.data_Calibration_Opening_Probe_Up = {
+                'time_1' : lines[17][0:2] + lines[17][3:5] + lines[17][6:8],
+                'time_2' : lines[18][0:2] + lines[18][3:5] + lines[18][6:8],
+                'time_3' : lines[19][0:2] + lines[19][3:5] + lines[19][6:8],
+                'time_4' : lines[20][0:2] + lines[20][3:5] + lines[20][6:8],
+                'angle_1' : lines[17][9:16],
+                'angle_2' : lines[18][9:16],
+                'angle_3' : lines[19][9:16],
+                'angle_4' : lines[20][9:16],
+                'magn_Value_1' : lines[17][19:25],
+                'magn_Value_2' : lines[18][19:25],
+                'magn_Value_3' : lines[19][19:25],
+                'magn_Value_4' : lines[20][19:25],
+                'est_Magn' : lines[14][0:8]
+            }
+            self.data_Calibration_Opening_Probe_Down = {
+                'time_1' : lines[21][0:2] + lines[21][3:5] + lines[21][6:8],
+                'time_2' : lines[22][0:2] + lines[22][3:5] + lines[22][6:8],
+                'time_3' : lines[23][0:2] + lines[23][3:5] + lines[23][6:8],
+                'time_4' : lines[24][0:2] + lines[24][3:5] + lines[24][6:8],
+                'angle_1' : lines[21][9:16],
+                'angle_2' : lines[22][9:16],
+                'angle_3' : lines[23][9:16],
+                'angle_4' : lines[24][9:16],
+                'magn_Value_1' : lines[21][19:25],
+                'magn_Value_2' : lines[22][19:25],
+                'magn_Value_3' : lines[23][19:25],
+                'magn_Value_4' : lines[24][19:25],
+                'est_Magn' : lines[14][8:17]
+            }
+            self.data_Calibration_Closing_Probe_Up = {
+                'time_1' : lines[30][0:2] + lines[30][3:5] + lines[30][6:8],
+                'time_2' : lines[31][0:2] + lines[31][3:5] + lines[31][6:8],
+                'time_3' : lines[32][0:2] + lines[32][3:5] + lines[32][6:8],
+                'time_4' : lines[33][0:2] + lines[33][3:5] + lines[33][6:8],
+                'angle_1' : lines[30][9:16],
+                'angle_2' : lines[31][9:16],
+                'angle_3' : lines[32][9:16],
+                'angle_4' : lines[33][9:16],
+                'magn_Value_1' : lines[30][19:25],
+                'magn_Value_2' : lines[31][19:25],
+                'magn_Value_3' : lines[32][19:25],
+                'magn_Value_4' : lines[33][19:25],
+                'est_Magn' : lines[27][0:8]
+            }
+            self.data_Calibration_Closing_Probe_Down = {
+                'time_1' : lines[34][0:2] + lines[34][3:5] + lines[34][6:8],
+                'time_2' : lines[35][0:2] + lines[35][3:5] + lines[35][6:8],
+                'time_3' : lines[36][0:2] + lines[36][3:5] + lines[36][6:8],
+                'time_4' : lines[37][0:2] + lines[37][3:5] + lines[37][6:8],
+                'angle_1' : lines[34][9:16],
+                'angle_2' : lines[35][9:16],
+                'angle_3' : lines[36][9:16],
+                'angle_4' : lines[37][9:16],
+                'magn_Value_1' : lines[34][19:25],
+                'magn_Value_2' : lines[35][19:25],
+                'magn_Value_3' : lines[36][19:25],
+                'magn_Value_4' : lines[37][19:25],
+                'est_Magn' : lines[27][8:17]
+                }
 
     def validate_Data(self):
         """
