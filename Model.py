@@ -94,7 +94,7 @@ class Model:
 
         try :
             # Si une mesabs a déjà été chargée, supprimer cette mesabs.
-            if self.loaded_File_Name is not '':
+            if self.loaded_File_Name != '':
                 os.remove(self.loaded_File_Name) 
 
             mesabs_Date = self.table_metadata['date']
