@@ -39,6 +39,36 @@ from Controller import *
 ##
 class App(tk.Tk):
     def __init__(self):
+
+        pinguin = """
+        OUTIL DE SAISIE DES DONNEES ABSOLUES
+
+                    ~~~~~~
+                  /'    -s- ~~~~      I <3 EOST and magnetism !
+                 /'dHHb      ~~~~
+                /'dHHHA     :
+               /' VHHHHaadHHb:
+              /'   `VHHHHHHHHb:
+             /'      `VHHHHHHH:
+            /'        dHHHHHHH:
+            |        dHHHHHHHH:
+            |       dHHHHHHHH:
+            |       VHHHHHHHHH:
+            |   b    HHHHHHHHV:
+            |   Hb   HHHHHHHV'
+            |   HH  dHHHHHHV'
+            |   VHbdHHHHHHV'
+            |    VHHHHHHHV'
+            \    VHHHHHHH:
+                \oodboooooodH
+        HHHHHHHHHHHHHHHHHHHHHHHHGGN94
+
+        Auteur : Iban FERNANDEZ
+        Date : 2022
+        """
+        
+        print(pinguin)
+
         super().__init__()
 
         self.title('Saisie de mesure absolue')

@@ -1,5 +1,6 @@
 import configparser
 import re
+import os
 from os.path import exists
 
 ##
@@ -35,6 +36,7 @@ class Model:
         self.controller = None
 
         self.file_Name = ''
+        self.loaded_File_Name = ''
 
     def load_config_file(self):
         """
@@ -91,8 +93,13 @@ class Model:
             return True
 
         try :
+            # Si une mesabs a déjà été chargée, supprimer cette mesabs.
+            if self.loaded_File_Name is not '':
+                os.remove(self.loaded_File_Name) 
+
             mesabs_Date = self.table_metadata['date']
             mesabs_Hour_First_Measurement = self.data_Calibration_Opening_Probe_Up['time_1'][0:2]
+
             # file name : path + 're' + month + day + hour + year
             self.file_Name = self.saving_Directory_Path + '/re' + mesabs_Date[3:5] + mesabs_Date[0:2] + mesabs_Hour_First_Measurement + mesabs_Date[6:8] + '.' + self.site
             
@@ -164,6 +171,8 @@ class Model:
             return False
 
     def read_Mesabs_From_file(self, filename):
+
+        self.loaded_File_Name = filename
         
         with open(filename, 'r') as file:
 

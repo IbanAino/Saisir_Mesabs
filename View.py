@@ -125,8 +125,6 @@ class View(tk.Frame):
         """
         Cette fonction active la lecture d'une saisie de mesure absolue lor du clic du bouton "charger une mesabs"
         """
-
-        print("Load mesabs View")
         if self.controller:
                 #self.controller.load_mesabs()
             self.select_file()
@@ -170,7 +168,6 @@ class View(tk.Frame):
         :param message:
         :return:
         """
-        print(message)
         messagebox.showerror('erreur', message)
 
     def show_Validation_Message(self, message):
@@ -179,7 +176,6 @@ class View(tk.Frame):
         :param message:
         :return:
         """
-        print(message)
         messagebox.showinfo('information', message)
 
     def show_success(self, message):
@@ -297,17 +293,13 @@ class Entry_Table_X_Y(tk.Frame):
         Cette date doit être de la forme HHMMSS
         Si c'est la cas, l'entrée se colore en vert. Sinon elle se colore en rouge.
         """
-        print('OnValidateDate')
-        print(entry_name)
         entry = self.nametowidget(entry_name)
         # Check the hours between 0 an 24, check the minutes between 0 and 59, check the seconds between 0 and 59 and chek the date lenght that should be 6 digits
         x = re.search("(?=^(2[0-3]|1[0-9]|0[0-9]))(?=^..[0-59])(?=^....[0-59])(?=[0-9]{6}$)", new_value)
 
         if x:
-            print("Yes, there is at least one match!")
             entry.configure(background = '#98FB98')
         else:
-            print("No match")
             entry.configure(background='#FFBCC1')
             return True
 
@@ -319,7 +311,6 @@ class Entry_Table_X_Y(tk.Frame):
         Cette valeur doit être comprise entre -9999.9 et +9999.9
         Si c'est la cas, l'entrée se colore en vert. Sinon elle se colore en rouge.
         """
-        print('on_Validate_Magn_Value')
         entry = self.nametowidget(entry_name)
         entry.configure(background="#98FB98")
 
@@ -488,17 +479,13 @@ class Entry_Table_Calibration(tk.Frame):
         Cette date doit être de la forme HHMMSS
         Si c'est la cas, l'entrée se colore en vert. Sinon elle se colore en rouge.
         """
-        print('OnValidateDate')
-        print(entry_name)
         entry = self.nametowidget(entry_name)
         # Check the hours between 0 an 24, check the minutes between 0 and 59, check the seconds between 0 and 59 and chek the date lenght that should be 6 digits
         x = re.search("(?=^(2[0-3]|1[0-9]|0[0-9]))(?=^..[0-59])(?=^....[0-59])(?=[0-9]{6}$)", new_value)
 
         if x:
-            print("Yes, there is at least one match!")
             entry.configure(background = '#98FB98')
         else:
-            print("No match")
             entry.configure(background='#FFBCC1')
             return True
 
@@ -518,7 +505,6 @@ class Entry_Table_Calibration(tk.Frame):
             entry.insert(0, self.format_Angle(new_value))
 
             if (0 <= new_value and new_value < 400):
-                print('New value' + str(new_value))
                 entry.configure(background="#98FB98")
             else:
                 entry.configure(background="#FFBCC1")
@@ -544,7 +530,6 @@ class Entry_Table_Calibration(tk.Frame):
             entry.insert(0, self.format_Angle(new_value))
 
             if (0 <= new_value and new_value < 400):
-                print('New value' + str(new_value))
                 entry.configure(background="#98FB98")
 
             else:
@@ -555,7 +540,6 @@ class Entry_Table_Calibration(tk.Frame):
             return True
 
         if(new_value):
-            print(self.probe_Up)
             if self.probe_Up is True:
                 self.text_angle_2.config(text = self.format_Angle(float(new_value) - 1.5))
                 self.text_angle_3.config(text = self.format_Angle(float(new_value) + 1.5))
@@ -572,7 +556,6 @@ class Entry_Table_Calibration(tk.Frame):
         Cette valeur doit être comprise entre -9999.9 et +9999.9
         Si c'est la cas, l'entrée se colore en vert. Sinon elle se colore en rouge.
         """
-        print('on_Validate_Magn_Value')
         entry = self.nametowidget(entry_name)
         entry.configure(background = "#98FB98")
 
@@ -697,7 +680,6 @@ class Entry_Angles_From_Target(tk.Frame):
         self.bearing_Azimuth = bearing_Azimuth
 
     def on_Validate_V1(self, entry_name, new_value):
-        print('on_Validate')
         entry = self.nametowidget(entry_name)
         entry.configure(background='#98FB98')
 
@@ -743,7 +725,6 @@ class Entry_Angles_From_Target(tk.Frame):
         return True
 
     def on_Validate_V2(self, entry_name, new_value):
-        print('on_Validate')
         entry = self.nametowidget(entry_name)
         entry.configure(background='#98FB98')
 
@@ -864,7 +845,7 @@ class Entry_Header(tk.Frame):
         self.text_Rotation_Angle.configure(background = "white")
         self.text_Bearing_Azimuth.configure(background = "white")
 
-        self.date_entry = tk.Entry(self, validate = "focusout", textvariable = self.date_var, bg = 'yellow', fg = 'black')
+        self.date_entry = tk.Entry(self, validate = "focusout", textvariable = self.date_var, bg = '#FEF86C', fg = 'black')
         self.date_entry.grid(row = 1, column = 2)
         self.date_entry.configure(validatecommand = (self.validate_Command_Date, "%W", "%P"))
     
@@ -896,11 +877,9 @@ class Entry_Header(tk.Frame):
         x = re.search("(?=^(3[0-1]|2[0-9]|1[0-9]|0[0-9]))(?=^...1[0-2]|^...0[0-9])(?=^......[0-99])(?=[0-9'/']{8}$)", new_value)
 
         if x:
-            print("Yes, there is at least one match!")
             entry.configure(background = '#98FB98')
 
         else:
-            print("No match")
             entry.configure(background='#FFBCC1')
             return True
 
