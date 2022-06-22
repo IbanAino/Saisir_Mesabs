@@ -44,7 +44,7 @@ class Model:
         Si le fichier est inexistant ou contient des erreurs alors un message d'erreur appraît dans l'interface graphique.
         """
         if not exists('config.txt'):
-            print('Fichier de config inexistant')
+            print('MODEL : ERROR, no config file')
             self.controller.show_Error_Message(text = 'Fichier de config inexistant\nVeuillez créer le fichier config.txt dans le même répertoire que les scripts Python.')
             return True
 
@@ -59,7 +59,7 @@ class Model:
             pass
             
         else:
-            print('ERROR')
+            print('MODEL : ERROR, errors existing inside the config file.')
             self.controller.show_Error_Message(text = 'Erreur dans la fichier de configuration config.txt\n\nVeuillez l\'éditer.')
             return True
 
@@ -86,7 +86,6 @@ class Model:
         Cette fonction récupère toutes le données de l'interface graphique puis les formatte avec la bonne syntaxe pour les inscrire dans un fichier texte.
         Après la suvegarde une fenêtre s'affiche dans l'interface graphique pour confirmer ou infirmer l'enregistrement
         """
-        print('save data')
 
         if not self.validate_Data():
             self.controller.show_Error_Message(text = 'Erreur, une ou plusieurs valeurs sont erronées.')
@@ -163,6 +162,8 @@ class Model:
                 file.write(self.format_Time(self.data_Sequence_2_Y['time_2']) + ' ' + self.format_Angle(self.data_Sequence_2_Y['angle_2']) + (' ') + self.format_Magn_Value(self.data_Sequence_2_Y['magn_Value_2']) + '\n')
                 file.write(self.format_Time(self.data_Sequence_2_Y['time_3']) + ' ' + self.format_Angle(self.data_Sequence_2_Y['angle_3']) + (' ') + self.format_Magn_Value(self.data_Sequence_2_Y['magn_Value_3']) + '\n')
                 file.write(self.format_Time(self.data_Sequence_2_Y['time_4']) + ' ' + self.format_Angle(self.data_Sequence_2_Y['angle_4']) + (' ') + self.format_Magn_Value(self.data_Sequence_2_Y['magn_Value_4']) + '\n')
+            
+            print("mesabs saved to " + self.file_Name)
             
             self.controller.show_Validation_Message('Mesabs enregistrée sous\n' + self.file_Name)
 
@@ -310,6 +311,8 @@ class Model:
                 'est_Magn' : lines[27][8:17]
                 }
 
+            print("Mesabs " + filename + " loaded.")
+
     def validate_Data(self):
         """
         Cette fonction vérifie que toutes les données reçues de l'interface graphique sont valides.
@@ -389,7 +392,6 @@ class Model:
                 print('MODEL : error in date')
                 return False
 
-        print('MODEL DATA VALIDATION OK')
         return True
     
     def validate_Time(self, time):

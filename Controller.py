@@ -48,21 +48,25 @@ class Controller:
         Le Model extrait les données du fichier texte.
         Les données sont ensuite renvoyées au View pour remplir les champs du formulaire
         """
-        self.model.read_Mesabs_From_file(filename)
+        if isinstance(filename, tuple) or str(filename) == '':
+            print ("Loading mesabs aboard.")
+        
+        else:
+            self.model.read_Mesabs_From_file(filename)
 
-        self.view.opening_Calibration_X.update_Data(self.model.data_Sequence_1_X)
-        self.view.opening_Calibration_Y.update_Data(self.model.data_Sequence_1_Y)
-        self.view.closing_Calibration_X.update_Data(self.model.data_Sequence_2_X)
-        self.view.closing_Calibration_Y.update_Data(self.model.data_Sequence_2_Y)
+            self.view.opening_Calibration_X.update_Data(self.model.data_Sequence_1_X)
+            self.view.opening_Calibration_Y.update_Data(self.model.data_Sequence_1_Y)
+            self.view.closing_Calibration_X.update_Data(self.model.data_Sequence_2_X)
+            self.view.closing_Calibration_Y.update_Data(self.model.data_Sequence_2_Y)
 
-        self.view.calibration_Opening_Probe_Up.update_Data(self.model.data_Calibration_Opening_Probe_Up)
-        self.view.calibration_Opening_Probe_Down.update_Data(self.model.data_Calibration_Opening_Probe_Down)
-        self.view.calibration_Closing_Probe_Up.update_Data(self.model.data_Calibration_Closing_Probe_Up)
-        self.view.calibration_Closing_Probe_Down.update_Data(self.model.data_Calibration_Closing_Probe_Down)
+            self.view.calibration_Opening_Probe_Up.update_Data(self.model.data_Calibration_Opening_Probe_Up)
+            self.view.calibration_Opening_Probe_Down.update_Data(self.model.data_Calibration_Opening_Probe_Down)
+            self.view.calibration_Closing_Probe_Up.update_Data(self.model.data_Calibration_Closing_Probe_Up)
+            self.view.calibration_Closing_Probe_Down.update_Data(self.model.data_Calibration_Closing_Probe_Down)
 
-        self.view.entry_Angles_From_Target.update_Data(self.model.table_Angles_From_Target)
+            self.view.entry_Angles_From_Target.update_Data(self.model.table_Angles_From_Target)
 
-        self.view.entry_Header.update_Data(self.model.table_metadata)
+            self.view.entry_Header.update_Data(self.model.table_metadata)
 
     def show_Error_Message(self, text):
         """
