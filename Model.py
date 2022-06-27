@@ -163,8 +163,9 @@ class Model:
                 file.write(self.format_Time(self.data_Sequence_2_Y['time_3']) + ' ' + self.format_Angle(self.data_Sequence_2_Y['angle_3']) + (' ') + self.format_Magn_Value(self.data_Sequence_2_Y['magn_Value_3']) + '\n')
                 file.write(self.format_Time(self.data_Sequence_2_Y['time_4']) + ' ' + self.format_Angle(self.data_Sequence_2_Y['angle_4']) + (' ') + self.format_Magn_Value(self.data_Sequence_2_Y['magn_Value_4']) + '\n')
             
+            self.loaded_File_Name = self.file_Name
             print("mesabs saved to " + self.file_Name)
-            
+
             self.controller.show_Validation_Message('Mesabs enregistrée sous\n' + self.file_Name)
 
         except ValueError:
