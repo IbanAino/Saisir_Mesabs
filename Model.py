@@ -81,6 +81,13 @@ class Model:
         """
         self.controller = controller
 
+    def enter_new_mesabs(self):
+        """
+        En cas de saisie de novuelle mesabs, la variale loaded_File_Name doit être réinitialisée à 0.
+        Si ce n'était pas le cas, le fichier précédent sauvegardé dans cette variable serait supprimé à l'enregistrement de la nouvelle mesabs.
+        """
+        self.loaded_File_Name = ''
+
     def save_Data(self):
         """
         Cette fonction récupère toutes le données de l'interface graphique puis les formatte avec la bonne syntaxe pour les inscrire dans un fichier texte.

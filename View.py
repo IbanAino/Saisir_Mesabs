@@ -65,7 +65,7 @@ class View(tk.Frame):
         Text_Frame(text = 'Etalonnage fermeture').place(x = 520, y = 730)
 
         #------ BUTTONS ------
-        self.buttons = Buttons_Frame(self.save_button_clicked, self.load_Button_Clicked)
+        self.buttons = Buttons_Frame(self.save_button_clicked, self.load_Button_Clicked, self.enter_new_mesabs)
 
         #------ ENTRIES ------
         self.entry_Header = Entry_Header()
@@ -126,9 +126,27 @@ class View(tk.Frame):
         Cette fonction active la lecture d'une saisie de mesure absolue lor du clic du bouton "charger une mesabs"
         """
         if self.controller:
-                #self.controller.load_mesabs()
             self.select_file()
 
+    def enter_new_mesabs(self):
+        """
+        Cette fonction réinitialise le formulaire pour saisir une nouvelle mesabs.
+        """
+        if self.controller:
+            self.controller.enter_new_mesabs()
+
+        self.opening_Calibration_X.reset_Data()
+        self.opening_Calibration_Y.reset_Data()
+        self.closing_Calibration_X.reset_Data()
+        self.closing_Calibration_Y.reset_Data()
+
+        self.calibration_Opening_Probe_Up.reset_Data()
+        self.calibration_Opening_Probe_Down.reset_Data()
+        self.calibration_Closing_Probe_Up.reset_Data()
+        self.calibration_Closing_Probe_Down.reset_Data()
+
+        self.entry_Angles_From_Target.reset_Data()
+        self.entry_Header.reset_Date()
 
     def select_file(self):
         """
@@ -356,18 +374,44 @@ class Entry_Table_X_Y(tk.Frame):
         """
         Cette fonction remplis automatiquement les champs d'entrées du firmulaire avec les données passées en paramètre.
         """
-        self.time_1_Var.set(dictionnary_Data['time_1']),
-        self.time_2_Var.set(dictionnary_Data['time_2']),
-        self.time_3_Var.set(dictionnary_Data['time_3']),
-        self.time_4_Var.set(dictionnary_Data['time_4']),
-        self.text_angle_1.config(text = dictionnary_Data['angle_1']),
-        self.text_angle_2.config(text = dictionnary_Data['angle_2']),
-        self.text_angle_3.config(text = dictionnary_Data['angle_3']),
-        self.text_angle_4.config(text = dictionnary_Data['angle_4']),
-        self.magn_Value_1_Var.set(dictionnary_Data['magn_Value_1']),
-        self.magn_Value_2_Var.set(dictionnary_Data['magn_Value_2']),
-        self.magn_Value_3_Var.set(dictionnary_Data['magn_Value_3']),
+        self.time_1_Var.set(dictionnary_Data['time_1'])
+        self.time_2_Var.set(dictionnary_Data['time_2'])
+        self.time_3_Var.set(dictionnary_Data['time_3'])
+        self.time_4_Var.set(dictionnary_Data['time_4'])
+        self.text_angle_1.config(text = dictionnary_Data['angle_1'])
+        self.text_angle_2.config(text = dictionnary_Data['angle_2'])
+        self.text_angle_3.config(text = dictionnary_Data['angle_3'])
+        self.text_angle_4.config(text = dictionnary_Data['angle_4'])
+        self.magn_Value_1_Var.set(dictionnary_Data['magn_Value_1'])
+        self.magn_Value_2_Var.set(dictionnary_Data['magn_Value_2'])
+        self.magn_Value_3_Var.set(dictionnary_Data['magn_Value_3'])
         self.magn_Value_4_Var.set(dictionnary_Data['magn_Value_4'])
+
+    def reset_Data(self):
+        """
+        Cette fonction vide le formulaire
+        """
+        self.time_1_Var.set('')
+        self.time_2_Var.set('')
+        self.time_3_Var.set('')
+        self.time_4_Var.set('')
+        self.text_angle_1.config(text = '')
+        self.text_angle_2.config(text = '')
+        self.text_angle_3.config(text = '')
+        self.text_angle_4.config(text = '')
+        self.magn_Value_1_Var.set('')
+        self.magn_Value_2_Var.set('')
+        self.magn_Value_3_Var.set('')
+        self.magn_Value_4_Var.set('')
+
+        self.time_1_Entry.configure(background='white')
+        self.time_2_Entry.configure(background='white')
+        self.time_3_Entry.configure(background='white')
+        self.time_4_Entry.configure(background='white')
+        self.magn_Value_1_Entry.configure(background='white')
+        self.magn_Value_2_Entry.configure(background='white')
+        self.magn_Value_3_Entry.configure(background='white')
+        self.magn_Value_4_Entry.configure(background='white')
 
     def format_Magn_Value(self, value):
         """
@@ -600,19 +644,48 @@ class Entry_Table_Calibration(tk.Frame):
         """
         Cette fonction remplis automatiquement les champs d'entrées du firmulaire avec les données passées en paramètre.
         """
-        self.time_1_Var.set(dictionnary_Data['time_1']),
-        self.time_2_Var.set(dictionnary_Data['time_2']),
-        self.time_3_Var.set(dictionnary_Data['time_3']),
-        self.time_4_Var.set(dictionnary_Data['time_4']),
-        self.angle_1_Var.set(dictionnary_Data['angle_1']),
-        self.text_angle_2.config(text = dictionnary_Data['angle_2']),
-        self.text_angle_3.config(text = dictionnary_Data['angle_3']),
-        self.text_angle_4.config(text = dictionnary_Data['angle_4']),
-        self.magn_Value_1_Var.set(dictionnary_Data['magn_Value_1']),
-        self.magn_Value_2_Var.set(dictionnary_Data['magn_Value_2']),
-        self.magn_Value_3_Var.set(dictionnary_Data['magn_Value_3']),
-        self.magn_Value_4_Var.set(dictionnary_Data['magn_Value_4']),
+        self.time_1_Var.set(dictionnary_Data['time_1'])
+        self.time_2_Var.set(dictionnary_Data['time_2'])
+        self.time_3_Var.set(dictionnary_Data['time_3'])
+        self.time_4_Var.set(dictionnary_Data['time_4'])
+        self.angle_1_Var.set(dictionnary_Data['angle_1'])
+        self.text_angle_2.config(text = dictionnary_Data['angle_2'])
+        self.text_angle_3.config(text = dictionnary_Data['angle_3'])
+        self.text_angle_4.config(text = dictionnary_Data['angle_4'])
+        self.magn_Value_1_Var.set(dictionnary_Data['magn_Value_1'])
+        self.magn_Value_2_Var.set(dictionnary_Data['magn_Value_2'])
+        self.magn_Value_3_Var.set(dictionnary_Data['magn_Value_3'])
+        self.magn_Value_4_Var.set(dictionnary_Data['magn_Value_4'])
         self.est_Magn_Var.set(dictionnary_Data['est_Magn'])
+    
+    def reset_Data(self):
+        """
+        Cette fonction vide le formulaire
+        """
+        self.time_1_Var.set('')
+        self.time_2_Var.set('')
+        self.time_3_Var.set('')
+        self.time_4_Var.set('')
+        self.angle_1_Var.set('')
+        self.text_angle_2.config(text = '')
+        self.text_angle_3.config(text = '')
+        self.text_angle_4.config(text = '')
+        self.magn_Value_1_Var.set('')
+        self.magn_Value_2_Var.set('')
+        self.magn_Value_3_Var.set('')
+        self.magn_Value_4_Var.set('')
+        self.est_Magn_Var.set('')
+
+        self.time_1_Entry.configure(background='white')
+        self.time_2_Entry.configure(background='white')
+        self.time_3_Entry.configure(background='white')
+        self.time_4_Entry.configure(background='white')
+        self.angle_1_Entry.configure(background='white')
+        self.magn_Value_1_Entry.configure(background='white')
+        self.magn_Value_2_Entry.configure(background='white')
+        self.magn_Value_3_Entry.configure(background='white')
+        self.magn_Value_4_Entry.configure(background='white')
+        self.est_Magn_Entry.configure(background='white')
 
     def format_Angle(self, value):
         """
@@ -781,12 +854,28 @@ class Entry_Angles_From_Target(tk.Frame):
         return(self.dictionnary_Data_Values)
 
     def update_Data(self, dictionnary_Data):
-        self.V1_Probe_Up_Var.set(dictionnary_Data['V1_Probe_Up']),
-        self.V1_Probe_Down_Var.set(dictionnary_Data['V1_Probe_Down']),
-        self.V2_Probe_Up_Var.set(dictionnary_Data['V2_Probe_Up']),
-        self.V2_Probe_Down_Var.set(dictionnary_Data['V2_Probe_Down']),
-        self.average_Angle_V1 = dictionnary_Data['angle_From_Target_V1'],
+        self.V1_Probe_Up_Var.set(dictionnary_Data['V1_Probe_Up'])
+        self.V1_Probe_Down_Var.set(dictionnary_Data['V1_Probe_Down'])
+        self.V2_Probe_Up_Var.set(dictionnary_Data['V2_Probe_Up'])
+        self.V2_Probe_Down_Var.set(dictionnary_Data['V2_Probe_Down'])
+        self.average_Angle_V1 = dictionnary_Data['angle_From_Target_V1']
         self.average_Angle_V2 = dictionnary_Data['angle_From_Target_V2']
+
+    def reset_Data(self):
+        """
+        Cette fonction vide le formulaire
+        """
+        self.V1_Probe_Up_Var.set('')
+        self.V1_Probe_Down_Var.set('')
+        self.V2_Probe_Up_Var.set('')
+        self.V2_Probe_Down_Var.set('')
+        self.average_Angle_V1 = ''
+        self.average_Angle_V2 = ''
+
+        self.V1_Probe_Up_Entry.configure(background='white')
+        self.V1_Probe_Down_Entry.configure(background='white')
+        self.V2_Probe_Up_Entry.configure(background='white')
+        self.V2_Probe_Down_Entry.configure(background='white')
 
     def format_Angle(self, value):
         """
@@ -845,7 +934,7 @@ class Entry_Header(tk.Frame):
         self.text_Rotation_Angle.configure(background = "white")
         self.text_Bearing_Azimuth.configure(background = "white")
 
-        self.date_entry = tk.Entry(self, validate = "focusout", textvariable = self.date_var, bg = '#FEF86C', fg = 'black')
+        self.date_entry = tk.Entry(self, validate = "focusout", textvariable = self.date_var, bg = 'yellow', fg = 'black')
         self.date_entry.grid(row = 1, column = 2)
         self.date_entry.configure(validatecommand = (self.validate_Command_Date, "%W", "%P"))
     
@@ -866,6 +955,14 @@ class Entry_Header(tk.Frame):
         self.text_Correction_F_Measurement.config(text = dictionnary_Data['correction_F_Measurement'])
         self.text_Rotation_Angle.config(text = dictionnary_Data['rotation_Angle'])
         self.text_Bearing_Azimuth.config(text = dictionnary_Data['bearing_Azimuth'])
+
+    def reset_Date(self):
+        """
+        Cette fonction réinitialise la date du formulaire à la date du jour en cas de nouvelle saisie de mesabs
+        """
+        today_Date = datetime.today().strftime('%d/%m/%y')
+        self.date_var.set(today_Date)
+        self.date_entry.configure(background='yellow')
 
     def on_Validate_Date(self, entry_name, new_value):
         """
@@ -906,13 +1003,15 @@ class Text_Frame(tk.Frame):
 # Elle est instanciée une seule fois.
 ##
 class Buttons_Frame(tk.Frame):
-    def __init__(self, save_button_clicked, load_Button_Clicked):
+    def __init__(self, save_button_clicked, load_Button_Clicked, enter_new_mesabs):
         super(Buttons_Frame, self).__init__()
         self.configure(bg = 'Light Grey')
         self.space = tk.Label(self, background = 'Light Grey')
         self.space.grid(row = 2, column = 1)
         self.space.config(height = 1)
-        self.save_button = ttk.Button(self, text='ENREGISTRER', command = save_button_clicked, width = 20)
-        self.load_button = ttk.Button(self, text='charger une mesabs', command = load_Button_Clicked, width = 20)
+        self.save_button = ttk.Button(self, text='ENREGISTRER', command = save_button_clicked, width = 22)
+        self.load_button = ttk.Button(self, text='charger une mesabs', command = load_Button_Clicked, width = 22)
+        self.new_button = ttk.Button(self, text='saisir une nouvelle mesabs', command = enter_new_mesabs, width = 22)
         self.save_button.grid(row=1, column=1)
         self.load_button.grid(row=3, column=1)
+        self.new_button.grid(row=5, column=1)

@@ -79,3 +79,9 @@ class Controller:
         Cette fonction affiche un message de succès dans l'interface graphique avec un texte personnalisé.
         """
         self.view.show_Validation_Message(text)
+
+    def enter_new_mesabs(self):
+        """
+        Cette fonction réinitialise le formulaire pour saisir une nouvelle mesabs.
+        """
+        self.model.enter_new_mesabs()
