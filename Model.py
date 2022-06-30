@@ -190,7 +190,7 @@ class Model:
             self.table_metadata = {
                 'station' : lines[0][1:4],
                 'date' : lines[0][5:7] + '/' + lines[0][8:10] + '/' + lines[0][11:13],
-                'correction_F_Measurement' : lines[3][0:6],
+                'correction_F_Measurement' : lines[3][0:2],
                 'rotation_Angle' : lines[6][1:4],
                 'bearing_Azimuth' : lines[9][1:8],
             }
